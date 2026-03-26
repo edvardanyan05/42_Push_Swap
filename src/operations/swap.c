@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edmvarda <edmvarda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 19:11:43 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/03/25 17:51:58 by edmvarda         ###   ########.fr       */
+/*   Updated: 2026/03/26 17:58:32 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	sb(t_list **b)
 
 void	ss(t_list **a, t_list **b)
 {
-	if (a && *a && (*a)->next && b && (*b) && (*b)->next)
+	if ((a && *a && (*a)->next) || (b && (*b) && (*b)->next))
 	{
 		swap_top(a);
 		swap_top(b);
