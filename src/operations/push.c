@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edmvarda <edmvarda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/22 20:48:08 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/03/25 17:52:04 by edmvarda         ###   ########.fr       */
+/*   Created: 2026/03/25 17:51:25 by edmvarda          #+#    #+#             */
+/*   Updated: 2026/03/25 18:51:01 by edmvarda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <unistd.h>
-
-typedef struct s_list
+static void	push_top(t_list **dst, t_list **src)
 {
-	void			*content;
-	struct s_list	*next;
-}					t_list;
+	t_list	*tmp;
 
-#endif
+	if (!src || !(*src))
+		return ;
+	tmp = *src;
+	*src = (*src)->next;
+	tmp->next = *dst;
+	*dst = tmp;
+}
+
