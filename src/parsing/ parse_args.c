@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*    parse_args.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/22 20:48:08 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/03/26 20:46:06 by mgogjyan         ###   ########.fr       */
+/*   Created: 2026/03/26 19:02:21 by mgogjyan          #+#    #+#             */
+/*   Updated: 2026/03/26 21:01:50 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft.h"
-# include <limits.h>
-# include <unistd.h>
-
-typedef struct s_list
+void	pars_args(t_list **a, char *src)
 {
-	void			*content;
-	struct s_list	*next;
-}					t_list;
-
-#endif
+	int	i;
+}
