@@ -6,7 +6,7 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 18:36:10 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/03/26 18:59:15 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/03/27 21:44:56 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	rev_rotate(t_list **stack)
 	t_list	*it;
 	t_list	*tmp;
 
-	if (!stack || !*stack || !(*stack)->next)
-		return ;
 	it = *stack;
 	while (it->next->next)
 		it = it->next;
@@ -46,9 +44,19 @@ void	rrb(t_list **b)
 
 void	rrr(t_list **a, t_list **b)
 {
-	if ((!a || !*a || !(*a)->next) && (!b || !*b || !(*b)->next))
-		return ;
-	rev_rotate(a);
-	rev_rotate(b);
-	write(1, "rrr\n", 4);
+	int	mov;
+
+	mov = 0;
+	if (a && *a && (*a)->next)
+	{
+		rev_rotate(a);
+		mov = 1;
+	}
+	if (b && *b && (*b)->next)
+	{
+		rev_rotate(b);
+		mov = 1;
+	}
+	if (mov)
+		write(1, "rrr\n", 4);
 }
