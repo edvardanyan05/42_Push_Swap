@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edmvarda <edmvarda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 20:48:08 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/03/28 20:16:23 by edmvarda         ###   ########.fr       */
+/*   Updated: 2026/03/30 01:28:17 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,15 @@ void	rrr(t_list **a, t_list **b);
 
 int		is_valid(const char *src);
 
+t_list	*pars_args(int ac, char **av);
+
 // helper functions
 
-int		token_creator(const char *src);
+int		is_in_stack(t_list *stack, int num);
+int		is_valid_token_helper(const char *num);
 int		valid_checker(int ac, char **av);
+
 void	delete_matrix(char **matrix);
+void	delete_stack(t_list *stack);
 
 #endif
