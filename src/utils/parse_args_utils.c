@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*    parse_args_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edmvarda <edmvarda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 20:15:34 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/03/28 20:16:56 by edmvarda         ###   ########.fr       */
+/*   Updated: 2026/03/30 01:24:36 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,30 @@ void	delete_matrix(char **matrix)
 	free(matrix);
 }
 
+void	delete_stack(t_list *stack)
+{
+	int		i;
+	t_list	*tmp;
+
+	if (!stack)
+		return ;
+	while (stack->next)
+	{
+		tmp = stack->next;
+		free(stack);
+		stack = tmp;
+	}
+	free(stack);
+	stack = NULL;
+}
+
+int	is_in_stack(t_list *stack, int num)
+{
+	while (stack)
+	{
+		if (*(int *)stack->content == num)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}
