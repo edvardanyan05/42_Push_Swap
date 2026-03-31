@@ -44,19 +44,10 @@ void	rb(t_list **b)
 
 void	rr(t_list **a, t_list **b)
 {
-	int	mov;
-
-	mov = 0;
-	if (a && *a && (*a)->next)
+	if (a && *a && (*a)->next && b && *b && (*b)->next)
 	{
 		rotate(a);
-		mov = 1;
-	}
-	if (b && *b && (*b)->next)
-	{
 		rotate(b);
-		mov = 1;
-	}
-	if (mov)
 		write(1, "rr\n", 3);
+	}
 }
