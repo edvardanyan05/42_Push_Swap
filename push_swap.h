@@ -42,6 +42,10 @@ t_list	*pars_args(int ac, char **av);
 int		is_in_stack(t_list *stack, int num);
 int		is_valid_token_helper(const char *num);
 int		valid_checker(int ac, char **av);
+int     is_sorted(t_list *stack)
+int*    assign_indexes(t_list *stack, int size);
+
+double  compute_disorder(t_list *stack)
 
 void	delete_matrix(char **matrix);
 void	delete_stack(t_list *stack);
