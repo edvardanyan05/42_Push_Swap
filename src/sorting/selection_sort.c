@@ -14,10 +14,16 @@
 
 void	simple_sort(t_list **a, t_list **b)
 {
+	if (!a || ft_lstsize(*a) == 0 || ft_lstsize(*a) == 1)
+		return ;
+	if(ft_lstsize(*a) == 2)
+	{
+		sort_two(a);
+		return ;
+	}
 	while (ft_lstsize(*a) > 3)
 		push_min_to_b(a, b);
-	if (ft_lstsize(*a) == 3)
-		sort_three(a);
+	sort_three(a);
 	while (*b)
 		pa(a, b);
 }
