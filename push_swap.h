@@ -6,7 +6,7 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 20:48:08 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/03/30 01:28:17 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/07 14:45:40 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,18 @@ t_list	*pars_args(int ac, char **av);
 int		is_in_stack(t_list *stack, int num);
 int		is_valid_token_helper(const char *num);
 int		valid_checker(int ac, char **av);
-int     is_sorted(t_list *stack)
-int*    assign_indexes(t_list *stack, int size);
+int		is_sorted(t_list *stack);
+int		*assign_indexes(t_list *stack, int size);
 
-double  compute_disorder(t_list *stack)
+double	compute_disorder(t_list *stack);
 
 void	delete_matrix(char **matrix);
 void	delete_stack(t_list *stack);
+
+void	sort_two(t_list **a);
+void	sort_three(t_list **a);
+void	push_min_to_b(t_list **a, t_list **b);
+void	sort_five(t_list **a, t_list **b);
+void	simple_sort(t_list **a, t_list **b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 19:02:21 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/04/06 14:10:28 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/07 14:24:45 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static int	find_rank_pos(int *arr, int size, int rank)
 	return (-1);
 }
 
-static void	push_min_to_b(t_list **a, t_list **b)
+void	push_min_to_b(t_list **a, t_list **b)
 {
 	int	*arr;
 	int	size;
