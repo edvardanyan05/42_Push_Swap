@@ -100,6 +100,6 @@ void	sort_five(t_list **a, t_list **b)
 	sort_three(a);
 	if (*(int *)(*b)->content > *(int *)(*b)->next->content)
 		sb(b);
-	pa(b, a);
-	pa(b, a);
+	pa(a, b);
+	pa(a, b);
 }
