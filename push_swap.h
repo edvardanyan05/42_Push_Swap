@@ -33,6 +33,9 @@ void	rra(t_list **a);
 void	rrb(t_list **b);
 void	rrr(t_list **a, t_list **b);
 
+void	simple_sort(t_list **a, t_list **b);
+void    radix_sort (t_list **a, t_list **b);
+
 int		is_valid(const char *src);
 
 t_list	*pars_args(int ac, char **av);
@@ -45,15 +48,14 @@ int		valid_checker(int ac, char **av);
 int		is_sorted(t_list *stack);
 int		*assign_indexes(t_list *stack, int size);
 
-double	compute_disorder(t_list *stack);
-
 void	delete_matrix(char **matrix);
 void	delete_stack(t_list *stack);
 
 void	sort_two(t_list **a);
 void	sort_three(t_list **a);
-void	push_min_to_b(t_list **a, t_list **b);
 void	sort_five(t_list **a, t_list **b);
-void	simple_sort(t_list **a, t_list **b);
+void	push_min_to_b(t_list **a, t_list **b);
+
+double	compute_disorder(t_list *stack);
 
 #endif
