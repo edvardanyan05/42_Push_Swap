@@ -16,8 +16,18 @@
 # include "libft.h"
 # include <limits.h>
 
-// main functions
 
+// flags
+typedef enum e_strategy
+{
+    ADAPTIVE,
+    SIMPLE,
+    MEDIUM,
+    COMPLEX
+}   t_strategy;
+
+
+// main functions
 void	sa(t_list **a);
 void	sb(t_list **b);
 void	ss(t_list **a, t_list **b);
@@ -40,8 +50,8 @@ int		is_valid(const char *src);
 
 t_list	*pars_args(int ac, char **av);
 
-// helper functions
 
+// helper functions
 int		is_in_stack(t_list *stack, int num);
 int		is_valid_token_helper(const char *num);
 int		valid_checker(int ac, char **av);
