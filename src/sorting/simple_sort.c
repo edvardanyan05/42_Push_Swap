@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   selection_sort.c                                   :+:      :+:    :+:   */
+/*   simple_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 14:15:48 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/04/07 14:36:20 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/11 19:36:37 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	simple_sort(t_list **a, t_list **b)
 {
 	if (!a || ft_lstsize(*a) == 0 || ft_lstsize(*a) == 1)
 		return ;
-	if(ft_lstsize(*a) == 2)
+	if (ft_lstsize(*a) == 2)
 	{
 		sort_two(a);
 		return ;

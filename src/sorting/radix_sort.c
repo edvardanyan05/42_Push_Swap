@@ -1,53 +1,53 @@
 
 #include "push_swap.h"
 
-static int get_bits_size(int    size)
+static int	get_bits_size(int size)
 {
-    int bits;
+	int	bits;
 
-    bits = 0;
-    while ((1 << bits) < size)
-        bits++;
-    return(bits);
+	bits = 0;
+	while ((1 << bits) < size)
+		bits++;
+	return (bits);
 }
 
-static void radix_sort_helper(t_list **a, t_list **b, int *arr, int bit)
+static void	radix_sort_helper(t_list **a, t_list **b, int *arr, int bit)
 {
-    int i;
-    int size;
+	int	i;
+	int	size;
 
-    i = 0;
-    size = ft_lstsize(*a);
-    while (i < size)
-    {
-        if (((arr[i] >> bit) & 1) == 0)
-            ra(a);
-        else
-            pb(a, b);
-        i++;
-    }
+	i = 0;
+	size = ft_lstsize(*a);
+	while (i < size)
+	{
+		if (((arr[i] >> bit) & 1) == 0)
+			ra(a);
+		else
+			pb(a, b);
+		i++;
+	}
 }
 
-void radix_sort(t_list **a, t_list **b)
+void	radix_sort(t_list **a, t_list **b)
 {
-    int size;
-    int bits_size;
-    int bit;
-    int i;
-    int *arr;
+	int	size;
+	int	bits_size;
+	int	bit;
+	int	i;
+	int	*arr;
 
-    size = ft_lstsize(*a);
-    bits_size = get_bits_size(size);
-    bit = 0;
-    while (bit < bits_size)
-    {
-        arr = assign_indexes(*a, size);
-        if (!arr)
-            return ;
-        radix_sort_helper(a, b, arr, bit);
-        free(arr);
-        while (*b)
-            pa(a, b);
-        bit++;
-    }
+	size = ft_lstsize(*a);
+	bits_size = get_bits_size(size);
+	bit = 0;
+	while (bit < bits_size)
+	{
+		arr = assign_indexes(*a, size);
+		if (!arr)
+			return ;
+		radix_sort_helper(a, b, arr, bit);
+		free(arr);
+		while (*b)
+			pa(a, b);
+		bit++;
+	}
 }
