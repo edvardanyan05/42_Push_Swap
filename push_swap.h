@@ -6,7 +6,7 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 20:48:08 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/04/07 14:45:40 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/11 22:32:37 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	rrb(t_list **b);
 void	rrr(t_list **a, t_list **b);
 
 void	simple_sort(t_list **a, t_list **b);
-void    radix_sort (t_list **a, t_list **b);
+void	radix_sort(t_list **a, t_list **b);
 
 int		is_valid(const char *src);
 

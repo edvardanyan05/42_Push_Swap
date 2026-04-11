@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   radix_sort.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/11 22:31:54 by mgogjyan          #+#    #+#             */
+/*   Updated: 2026/04/11 22:31:56 by mgogjyan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -20,7 +31,7 @@ static void	radix_sort_helper(t_list **a, t_list **b, int *arr, int bit)
 	size = ft_lstsize(*a);
 	while (i < size)
 	{
-		if (((arr[i] >> bit) & 1) == 0)
+		if (((arr[i] >> bit) & 1) == 1)
 			ra(a);
 		else
 			pb(a, b);

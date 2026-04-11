@@ -6,7 +6,7 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 19:02:21 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/04/11 19:38:22 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/11 22:34:45 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@ void	sort_three(t_list **a)
 	if (!arr)
 		return ;
 	if (arr[0] == 0 && arr[1] == 1)
-	{
-		free(arr);
-		return ;
-	}
+		return (free(arr));
 	else if (arr[0] == 0 && arr[1] == 2)
 	{
 		rra(a);
