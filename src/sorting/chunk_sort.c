@@ -6,7 +6,7 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 19:38:45 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/04/11 22:06:07 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/11 23:40:31 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,9 @@ void	push_chunk(t_list **a, t_list **b, int chunk_min, int chunk_max)
 {
 	int	size_a;
 	int	*arr;
-	int	i;
 
 	size_a = ft_lstsize(*a);
-	i = 0;
-	while (i < size_a)
+	while (size_a-- > 0)
 	{
 		arr = assign_indexes(*a, ft_lstsize(*a));
 		if (!arr)
@@ -84,6 +82,33 @@ void	push_chunk(t_list **a, t_list **b, int chunk_min, int chunk_max)
 		else
 			ra(a);
 		free(arr);
-		i++;
+	}
+}
+
+void	chunk_sort(t_list **a, t_list **b)
+{
+	int	size;
+	int	chunk_size;
+	int	chunk_min;
+	int	chunk_max;
+	int	max_pos;
+
+	size = ft_lstsize(*a);
+	chunk_size = chunk_size_counter(size);
+	chunk_min = 0;
+	chunk_max = chunk_size;
+	while (chunk_min < size)
+	{
+		push_chunk(a, b, chunk_min, chunk_max);
+		chunk_min += chunk_size;
+		chunk_max += chunk_size;
+		if (chunk_max > size)
+			chunk_max = size;
+	}
+	while (*b)
+	{
+		max_pos = find_max_pos(b);
+		rotate_to_top(b, max_pos);
+		pa(a, b);
 	}
 }
