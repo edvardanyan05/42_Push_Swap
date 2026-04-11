@@ -20,7 +20,7 @@ static void radix_sort_helper(t_list **a, t_list **b, int *arr, int bit)
     size = ft_lstsize(*a);
     while (i < size)
     {
-        if (((arr[i] >> bit) & 1) == 0)
+        if (((arr[i] >> bit) & 1) == 1)
             ra(a);
         else
             pb(a, b);
