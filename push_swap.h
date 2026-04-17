@@ -16,8 +16,23 @@
 # include "libft.h"
 # include <limits.h>
 
+// operations benchmark struct
+typedef struct s_bench
+{
+    int sa;
+    int sb;
+    int ss;
+    int pa;
+    int pb;
+    int ra;
+    int rb;
+    int rr;
+    int rra;
+    int rrb;
+    int rrr;
+}   t_bench;
 
-// flags
+// flags for sorting strategy
 typedef enum e_strategy
 {
     ADAPTIVE,
