@@ -16,8 +16,9 @@ int main(int argc, char **argv)
 {
     int arg_i;
     int bench;
-    t_list *stack;
-    t_list *reserve;
+    double disorder;
+    t_list *a;
+    t_list *b;
 
     t_strategy  commands;
 
@@ -27,13 +28,13 @@ int main(int argc, char **argv)
     commands = ADAPTIVE;
     if(argc > arg_i && argv[arg_i][0] == '-' && argv[arg_i][1] == '-')
     {
-        if(ft_strncmp(argv[1], "--adaptive", 10) == 0)
+        if(ft_strncmp(argv[arg_i], "--adaptive", 10) == 0 && argv[arg_i][10] == '\0')
             commands = ADAPTIVE;
-        else if(ft_strncmp(argv[1], "--simple", 8) == 0)
+        else if(ft_strncmp(argv[arg_i], "--simple", 8) == 0 && argv[arg_i][8] == '\0')
             commands = SIMPLE;
-        else if(ft_strncmp(argv[1], "--medium", 8) == 0)
+        else if(ft_strncmp(argv[arg_i], "--medium", 8) == 0 && argv[arg_i][8] == '\0')
             commands = MEDIUM;
-        else if(ft_strncmp(argv[1], "--complex", 9) == 0)
+        else if(ft_strncmp(argv[arg_i], "--complex", 9) == 0 && argv[arg_i][9] == '\0')
             commands = COMPLEX;
         else
         {
@@ -43,25 +44,34 @@ int main(int argc, char **argv)
         arg_i++;
     }
     bench = 0;
-    if (argc > arg_i && ft_strncmp(argv[arg_i], "--bench", 7) == 0)
+    if (argc > arg_i && ft_strncmp(argv[arg_i], "--bench", 8) == 0)
     {
         bench = 1;
         arg_i++;
     }
-    stack = pars_args(argc - arg_i + 1, argv + arg_i - 1);
-    if (!stack)
+    a = pars_args(argc - arg_i + 1, argv + arg_i - 1);
+    if (!a)
         return (0);
-    if (is_sorted(stack))
-        return (delete_stack(stack), 0);
-    reserve = NULL;
+    if (is_sorted(a))
+        return (delete_stack(a), 0);
+    b = NULL;
     if (commands == SIMPLE)
-        simple_sort(&stack, &reserve);
+        simple_sort(&a, &b);
     else if (commands == MEDIUM)
-        chunk_sort(&stack, &reserve);
+        chunk_sort(&a, &b);
     else if (commands == COMPLEX)
-        radix_sort(&stack, &reserve);
+        radix_sort(&a, &b);
     else
     {
-        
+        disorder = compute_disorder(a);
+        if (disorder < 0.1)
+            simple_sort(&a, &b);
+        else if (disorder < 0.3)
+            chunk_sort(&a, &b);
+        else
+            radix_sort(&a, &b);
     }
+    delete_stack (a);
+    delete_stack (b);
+    return (0);
 }
