@@ -12,6 +12,8 @@
 
 #include "push_swap.h"
 
+static void print_bench(t_bench *bench);
+
 int main(int argc, char **argv)
 {
     int arg_i;
@@ -19,14 +21,14 @@ int main(int argc, char **argv)
     double disorder;
     t_list *a;
     t_list *b;
-
     t_strategy  commands;
 
     if (argc < 2)
         return (0);
     arg_i = 1;
     commands = ADAPTIVE;
-    if(argc > arg_i && argv[arg_i][0] == '-' && argv[arg_i][1] == '-')
+    bench = 0;
+    while(argc > arg_i && argv[arg_i][0] == '-' && argv[arg_i][1] == '-' && arg_i <= 3)
     {
         if(ft_strncmp(argv[arg_i], "--adaptive", 10) == 0 && argv[arg_i][10] == '\0')
             commands = ADAPTIVE;
@@ -36,6 +38,8 @@ int main(int argc, char **argv)
             commands = MEDIUM;
         else if(ft_strncmp(argv[arg_i], "--complex", 9) == 0 && argv[arg_i][9] == '\0')
             commands = COMPLEX;
+        else if(ft_strncmp(argv[arg_i], "--bench", 7) == 0 && argv[arg_i][7] == '\0')
+            bench = 1;
         else
         {
             write(2, "Error\n", 6);
@@ -43,8 +47,7 @@ int main(int argc, char **argv)
         }
         arg_i++;
     }
-    bench = 0;
-    if (argc > arg_i && ft_strncmp(argv[arg_i], "--bench", 8) == 0)
+    if (argc > arg_i && ft_strncmp(argv[arg_i], "--bench", 7) == 0 && argv[arg_i][7] == '\0' && bench != 1)
     {
         bench = 1;
         arg_i++;
@@ -74,4 +77,12 @@ int main(int argc, char **argv)
     delete_stack (a);
     delete_stack (b);
     return (0);
+}
+
+static void print_bench(double disorder, t_bench *bench)
+{
+    print_disorder(disorder);
+    print_strategy(commands, disorder);
+    print_total_operations(original_bench());
+
 }
