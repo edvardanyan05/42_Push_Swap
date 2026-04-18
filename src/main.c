@@ -6,7 +6,7 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 20:47:53 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/04/18 20:07:20 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/18 20:36:34 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,9 @@ int	main(int argc, char **argv)
 	else
 	{
 		disorder = compute_disorder(a);
-		if (disorder < 0.1)
+		if (disorder < 0.2)
 			simple_sort(&a, &b);
-		else if (disorder < 0.3)
+		else if (disorder < 0.5)
 			chunk_sort(&a, &b);
 		else
 			radix_sort(&a, &b);
@@ -91,4 +91,5 @@ static void	print_bench(double disorder, t_strategy commands, t_bench *bench)
 	print_disorder(disorder);
 	print_strategy(commands, disorder);
 	print_total_operations(original_bench());
+    print_operations(original_bench());
 }
