@@ -16,7 +16,7 @@
 # include "libft.h"
 # include <limits.h>
 
-// operations benchmark struct
+/* operations benchmark struct */
 typedef struct s_bench
 {
     int sa;
@@ -32,7 +32,7 @@ typedef struct s_bench
     int rrr;
 }   t_bench;
 
-// flags for sorting strategy
+/* flags for sorting strategy */
 typedef enum e_strategy
 {
     ADAPTIVE,
@@ -42,7 +42,7 @@ typedef enum e_strategy
 }   t_strategy;
 
 
-// main functions
+/* main functions */
 void	sa(t_list **a);
 void	sb(t_list **b);
 void	ss(t_list **a, t_list **b);
@@ -59,6 +59,7 @@ void	rrb(t_list **b);
 void	rrr(t_list **a, t_list **b);
 
 void	simple_sort(t_list **a, t_list **b);
+void    chunk_sort(t_list **a, t_list **b);
 void	radix_sort(t_list **a, t_list **b);
 
 int		is_valid(const char *src);
@@ -66,7 +67,7 @@ int		is_valid(const char *src);
 t_list	*pars_args(int ac, char **av);
 
 
-// helper functions
+/* util functions */
 int		is_in_stack(t_list *stack, int num);
 int		is_valid_token_helper(const char *num);
 int		valid_checker(int ac, char **av);
