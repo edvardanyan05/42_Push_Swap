@@ -6,7 +6,7 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 20:48:08 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/04/18 20:07:50 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/18 20:35:17 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void				push_min_to_b(t_list **a, t_list **b);
 int					ft_putnbr_u(unsigned int n);
 void				print_disorder(double disorder);
 void				print_strategy(t_strategy strategy, double disorder);
+void				print_operations(t_bench *t_bench);
 
 double				compute_disorder(t_list *stack);
 
