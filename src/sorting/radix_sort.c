@@ -6,7 +6,7 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 22:31:54 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/04/11 22:31:56 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/18 20:07:44 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,16 @@ static void	radix_sort_helper(t_list **a, t_list **b, int *arr, int bit)
 	int	i;
 	int	size;
 
-    i = 0;
-    size = ft_lstsize(*a);
-    while (i < size)
-    {
-        if (((arr[i] >> bit) & 1) == 1)
-            ra(a);
-        else
-            pb(a, b);
-        i++;
-    }
+	i = 0;
+	size = ft_lstsize(*a);
+	while (i < size)
+	{
+		if (((arr[i] >> bit) & 1) == 1)
+			ra(a);
+		else
+			pb(a, b);
+		i++;
+	}
 }
 
 void	radix_sort(t_list **a, t_list **b)

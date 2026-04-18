@@ -6,7 +6,7 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 20:48:08 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/04/11 22:32:37 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/18 20:07:50 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,75 +19,73 @@
 /* operations benchmark struct */
 typedef struct s_bench
 {
-    unsigned int sa;
-    unsigned int sb;
-    unsigned int ss;
-    unsigned int pa;
-    unsigned int pb;
-    unsigned int ra;
-    unsigned int rb;
-    unsigned int rr;
-    unsigned int rra;
-    unsigned int rrb;
-    unsigned int rrr;
-}   t_bench;
+	unsigned int	sa;
+	unsigned int	sb;
+	unsigned int	ss;
+	unsigned int	pa;
+	unsigned int	pb;
+	unsigned int	ra;
+	unsigned int	rb;
+	unsigned int	rr;
+	unsigned int	rra;
+	unsigned int	rrb;
+	unsigned int	rrr;
+}					t_bench;
 
 /* flags for sorting strategy */
 typedef enum e_strategy
 {
-    ADAPTIVE,
-    SIMPLE,
-    MEDIUM,
-    COMPLEX
-}   t_strategy;
-
+	ADAPTIVE,
+	SIMPLE,
+	MEDIUM,
+	COMPLEX
+}					t_strategy;
 
 /* main functions */
-void	sa(t_list **a);
-void	sb(t_list **b);
-void	ss(t_list **a, t_list **b);
+void				sa(t_list **a);
+void				sb(t_list **b);
+void				ss(t_list **a, t_list **b);
 
-void	pa(t_list **a, t_list **b);
-void	pb(t_list **a, t_list **b);
+void				pa(t_list **a, t_list **b);
+void				pb(t_list **a, t_list **b);
 
-void	ra(t_list **a);
-void	rb(t_list **b);
-void	rr(t_list **a, t_list **b);
+void				ra(t_list **a);
+void				rb(t_list **b);
+void				rr(t_list **a, t_list **b);
 
-void	rra(t_list **a);
-void	rrb(t_list **b);
-void	rrr(t_list **a, t_list **b);
+void				rra(t_list **a);
+void				rrb(t_list **b);
+void				rrr(t_list **a, t_list **b);
 
-void	simple_sort(t_list **a, t_list **b);
-void    chunk_sort(t_list **a, t_list **b);
-void	radix_sort(t_list **a, t_list **b);
+void				simple_sort(t_list **a, t_list **b);
+void				chunk_sort(t_list **a, t_list **b);
+void				radix_sort(t_list **a, t_list **b);
 
-int		is_valid(const char *src);
+int					is_valid(const char *src);
 
-t_list	*pars_args(int ac, char **av);
-
+t_list				*pars_args(int ac, char **av);
 
 /* util functions */
-int		is_in_stack(t_list *stack, int num);
-int		is_valid_token_helper(const char *num);
-int		valid_checker(int ac, char **av);
-int		is_sorted(t_list *stack);
-int		*assign_indexes(t_list *stack, int size);
+int					is_in_stack(t_list *stack, int num);
+int					is_valid_token_helper(const char *num);
+int					valid_checker(int ac, char **av);
+int					is_sorted(t_list *stack);
+int					*assign_indexes(t_list *stack, int size);
 
-void	delete_matrix(char **matrix);
-void	delete_stack(t_list *stack);
+void				delete_matrix(char **matrix);
+void				delete_stack(t_list *stack);
 
-void	sort_two(t_list **a);
-void	sort_three(t_list **a);
-void	sort_five(t_list **a, t_list **b);
-void	push_min_to_b(t_list **a, t_list **b);
+void				sort_two(t_list **a);
+void				sort_three(t_list **a);
+void				sort_five(t_list **a, t_list **b);
+void				push_min_to_b(t_list **a, t_list **b);
 
-int		ft_putnbr_u(unsigned int n);
-void    print_disorder(double disorder);
-void    print_strategy(double disorder);
+int					ft_putnbr_u(unsigned int n);
+void				print_disorder(double disorder);
+void				print_strategy(t_strategy strategy, double disorder);
 
-double	compute_disorder(t_list *stack);
+double				compute_disorder(t_list *stack);
 
-t_bench    *original_bench(void);
+t_bench				*original_bench(void);
 
 #endif
