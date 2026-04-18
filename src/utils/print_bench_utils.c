@@ -38,7 +38,7 @@ void	print_strategy(t_strategy strategy, double disorder)
 		write(2, "Strategy: Radix Sort O(n log n)\n", 32);
 	else
 	{
-		if (disorder < 0.1)
+		if (disorder < 0.2)
 			write(2, "Strategy: Simple Sort O(n^2)\n", 29);
 		else if (disorder < 0.5)
 			write(2, "Strategy: Chunk Sort O(n sqrt(n))\n", 34);
@@ -57,4 +57,31 @@ void	print_total_operations(t_bench *bench)
 	write(2, "Total operations: ", 18);
 	ft_putnbr_u(total);
 	write(2, "\n", 1);
+}
+
+void    print_operations(t_bench *bench)
+{
+    write(2, "sa: ", 4);
+    ft_putnbr_u(bench->sa);
+    write(2, "\nsb: ", 5);
+    ft_putnbr_u(bench->sb);
+    write(2, "\nss: ", 5);
+    ft_putnbr_u(bench->ss);
+    write(2, "\npa: ", 5);
+    ft_putnbr_u(bench->pa);
+    write(2, "\npb: ", 5);
+    ft_putnbr_u(bench->pb);
+    write(2, "\nra: ", 5);
+    ft_putnbr_u(bench->ra);
+    write(2, "\nrb: ", 5);
+    ft_putnbr_u(bench->rb);
+    write(2, "\nrr: ", 5);
+    ft_putnbr_u(bench->rr);
+    write(2, "\nrra: ", 6);
+    ft_putnbr_u(bench->rra);
+    write(2, "\nrrb: ", 6);
+    ft_putnbr_u(bench->rrb);
+    write(2, "\nrrr: ", 6);
+    ft_putnbr_u(bench->rrr);
+    write(2, "\n", 1);
 }
