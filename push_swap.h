@@ -19,17 +19,17 @@
 /* operations benchmark struct */
 typedef struct s_bench
 {
-    int sa;
-    int sb;
-    int ss;
-    int pa;
-    int pb;
-    int ra;
-    int rb;
-    int rr;
-    int rra;
-    int rrb;
-    int rrr;
+    unsigned int sa;
+    unsigned int sb;
+    unsigned int ss;
+    unsigned int pa;
+    unsigned int pb;
+    unsigned int ra;
+    unsigned int rb;
+    unsigned int rr;
+    unsigned int rra;
+    unsigned int rrb;
+    unsigned int rrr;
 }   t_bench;
 
 /* flags for sorting strategy */
@@ -81,6 +81,10 @@ void	sort_two(t_list **a);
 void	sort_three(t_list **a);
 void	sort_five(t_list **a, t_list **b);
 void	push_min_to_b(t_list **a, t_list **b);
+
+int		ft_putnbr_u(unsigned int n);
+void    print_disorder(double disorder);
+void    print_strategy(double disorder);
 
 double	compute_disorder(t_list *stack);
 
