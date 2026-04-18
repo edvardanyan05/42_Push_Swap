@@ -83,4 +83,6 @@ void	push_min_to_b(t_list **a, t_list **b);
 
 double	compute_disorder(t_list *stack);
 
+t_bench    *original_bench(void);
+
 #endif
