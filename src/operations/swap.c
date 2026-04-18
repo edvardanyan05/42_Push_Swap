@@ -32,6 +32,7 @@ void	sa(t_list **a)
 		return ;
 	swap_top(a);
 	write(1, "sa\n", 3);
+	original_bench()->sa++;
 }
 
 void	sb(t_list **b)
@@ -40,6 +41,7 @@ void	sb(t_list **b)
 		return ;
 	swap_top(b);
 	write(1, "sb\n", 3);
+	original_bench()->sb++;
 }
 
 void	ss(t_list **a, t_list **b)
@@ -49,4 +51,5 @@ void	ss(t_list **a, t_list **b)
 	swap_top(a);
 	swap_top(b);
 	write(1, "ss\n", 3);
+	original_bench()->ss++;
 }

@@ -32,6 +32,7 @@ void	rra(t_list **a)
 		return ;
 	rev_rotate(a);
 	write(1, "rra\n", 4);
+	original_bench()->rra++;
 }
 
 void	rrb(t_list **b)
@@ -40,6 +41,7 @@ void	rrb(t_list **b)
 		return ;
 	rev_rotate(b);
 	write(1, "rrb\n", 4);
+	original_bench()->rrb++;
 }
 
 void	rrr(t_list **a, t_list **b)
@@ -49,5 +51,6 @@ void	rrr(t_list **a, t_list **b)
 		rev_rotate(a);
 		rev_rotate(b);
 		write(1, "rrr\n", 4);
+		original_bench()->rrr++;
 	}
 }
