@@ -6,7 +6,7 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 20:15:34 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/04/18 20:07:34 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/21 23:21:14 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	delete_matrix(char **matrix)
 
 void	delete_stack(t_list *stack)
 {
-	int		i;
 	t_list	*tmp;
 
 	if (!stack)

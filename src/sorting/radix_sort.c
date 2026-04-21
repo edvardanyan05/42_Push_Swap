@@ -6,7 +6,7 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 22:31:54 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/04/18 20:07:44 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/21 23:21:59 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	radix_sort(t_list **a, t_list **b)
 	int	size;
 	int	bits_size;
 	int	bit;
-	int	i;
 	int	*arr;
 
 	size = ft_lstsize(*a);

@@ -6,7 +6,7 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 20:47:53 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/04/21 19:36:55 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/21 23:35:56 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	main(int argc, char **argv)
 	f.cmd = ADAPTIVE;
 	if (!parse_flags(argc, argv, &f))
 		return (write(2, "Error\n", 6), 0);
-	a = pars_args(argc - f.arg_i, argv + f.arg_i);
+	a = pars_args(argc - f.arg_i + 1, argv + f.arg_i - 1);
 	if (!a)
 		return (0);
 	if (is_sorted(a))
@@ -73,13 +73,20 @@ static void	do_sort(t_list *a, t_strategy cmd, int bench_flag)
 	choose_sort(&a, &b, cmd, disorder);
 	if (bench_flag)
 		print_bench(disorder, cmd);
+	t_list *p = a;
+	while (p != NULL)
+	{
+		printf("%d	", *(int *)p->content);
+		p = p->next;
+	}
+	printf("\n");
 	delete_stack(a);
 	delete_stack(b);
 }
 
 static void	print_bench(double disorder, t_strategy commands)
 {
-	print_disorder(disorder);
+	print_disorder(disorder); 
 	print_strategy(commands, disorder);
 	print_total_operations(original_bench());
 	print_operations(original_bench());

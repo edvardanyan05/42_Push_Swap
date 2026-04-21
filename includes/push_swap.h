@@ -6,15 +6,16 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 20:48:08 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/04/21 19:33:25 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/21 23:24:14 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft.h"
+# include "../Libft/libft.h"
 # include <limits.h>
+# include <stdio.h>
 
 /* operations benchmark struct */
 typedef struct s_bench
@@ -45,10 +46,10 @@ typedef enum e_strategy
 
 typedef struct s_flags
 {
-	t_strategy	cmd;
-	int			bench;
-	int			arg_i;
-}	t_flags;
+	t_strategy		cmd;
+	int				bench;
+	int				arg_i;
+}					t_flags;
 
 /* main functions */
 void				sa(t_list **a);
@@ -92,6 +93,7 @@ void				push_min_to_b(t_list **a, t_list **b);
 int					ft_putnbr_u(unsigned int n);
 void				print_disorder(double disorder);
 void				print_strategy(t_strategy strategy, double disorder);
+void				print_total_operations(t_bench *bench);
 void				print_operations(t_bench *t_bench);
 
 double				compute_disorder(t_list *stack);

@@ -6,13 +6,13 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 20:31:24 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/04/18 20:08:28 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/21 23:20:13 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	is_valid_token(const char *token)
+static int	is_valid_token(char *token)
 {
 	char	*limit;
 	char	*num;
@@ -20,10 +20,9 @@ static int	is_valid_token(const char *token)
 
 	if (!token || token[0] == '\0')
 		return (0);
+	num = token;
 	if (token[0] == '+' || token[0] == '-')
-		num = token + 1;
-	else
-		num = token;
+		num = num + 1;
 	if (!is_valid_token_helper(num))
 		return (0);
 	len = ft_strlen(num);
