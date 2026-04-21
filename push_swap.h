@@ -6,7 +6,7 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 20:48:08 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/04/18 20:35:17 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/21 19:33:25 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,15 @@ typedef enum e_strategy
 	MEDIUM,
 	COMPLEX
 }					t_strategy;
+
+/* parsing flags */
+
+typedef struct s_flags
+{
+	t_strategy	cmd;
+	int			bench;
+	int			arg_i;
+}	t_flags;
 
 /* main functions */
 void				sa(t_list **a);
@@ -86,6 +95,8 @@ void				print_strategy(t_strategy strategy, double disorder);
 void				print_operations(t_bench *t_bench);
 
 double				compute_disorder(t_list *stack);
+void				choose_sort(t_list **a, t_list **b, t_strategy cmd,
+						double disorder);
 
 t_bench				*original_bench(void);
 

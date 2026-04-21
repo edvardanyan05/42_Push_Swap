@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_bench_utils.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/21 16:21:20 by mgogjyan          #+#    #+#             */
+/*   Updated: 2026/04/21 16:21:23 by mgogjyan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -59,29 +70,29 @@ void	print_total_operations(t_bench *bench)
 	write(2, "\n", 1);
 }
 
-void    print_operations(t_bench *bench)
+void	print_operations(t_bench *bench)
 {
-    write(2, "sa: ", 4);
-    ft_putnbr_u(bench->sa);
-    write(2, "\nsb: ", 5);
-    ft_putnbr_u(bench->sb);
-    write(2, "\nss: ", 5);
-    ft_putnbr_u(bench->ss);
-    write(2, "\npa: ", 5);
-    ft_putnbr_u(bench->pa);
-    write(2, "\npb: ", 5);
-    ft_putnbr_u(bench->pb);
-    write(2, "\nra: ", 5);
-    ft_putnbr_u(bench->ra);
-    write(2, "\nrb: ", 5);
-    ft_putnbr_u(bench->rb);
-    write(2, "\nrr: ", 5);
-    ft_putnbr_u(bench->rr);
-    write(2, "\nrra: ", 6);
-    ft_putnbr_u(bench->rra);
-    write(2, "\nrrb: ", 6);
-    ft_putnbr_u(bench->rrb);
-    write(2, "\nrrr: ", 6);
-    ft_putnbr_u(bench->rrr);
-    write(2, "\n", 1);
+	write(2, "sa: ", 4);
+	ft_putnbr_u(bench->sa);
+	write(2, "\nsb: ", 5);
+	ft_putnbr_u(bench->sb);
+	write(2, "\nss: ", 5);
+	ft_putnbr_u(bench->ss);
+	write(2, "\npa: ", 5);
+	ft_putnbr_u(bench->pa);
+	write(2, "\npb: ", 5);
+	ft_putnbr_u(bench->pb);
+	write(2, "\nra: ", 5);
+	ft_putnbr_u(bench->ra);
+	write(2, "\nrb: ", 5);
+	ft_putnbr_u(bench->rb);
+	write(2, "\nrr: ", 5);
+	ft_putnbr_u(bench->rr);
+	write(2, "\nrra: ", 6);
+	ft_putnbr_u(bench->rra);
+	write(2, "\nrrb: ", 6);
+	ft_putnbr_u(bench->rrb);
+	write(2, "\nrrr: ", 6);
+	ft_putnbr_u(bench->rrr);
+	write(2, "\n", 1);
 }
