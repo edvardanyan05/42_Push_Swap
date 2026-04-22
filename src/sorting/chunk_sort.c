@@ -6,44 +6,34 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 19:38:45 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/04/18 20:08:18 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/23 16:00:00 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	chunk_size_counter(int stack_size)
-{
-	int	chunk_size;
-
-	chunk_size = 0;
-	while (chunk_size * chunk_size < stack_size)
-		chunk_size++;
-	return (chunk_size);
-}
-
 static int	find_max_pos(t_list **b)
 {
-	int		max_pos;
 	int		pos;
-	int		max_value;
-	t_list	*it;
+	int		max_pos;
+	int		max;
+	t_list	*tmp;
 
+	if (!b || !*b)
+		return (0);
 	pos = 0;
 	max_pos = 0;
-	if (!b || !*b || !(*b)->content)
-		return (0);
-	it = *b;
-	max_value = *(int *)it->content;
-	while (it)
+	max = *(int *)(*b)->content;
+	tmp = *b;
+	while (tmp)
 	{
-		if (*(int *)it->content > max_value)
+		if (*(int *)tmp->content > max)
 		{
-			max_value = *(int *)it->content;
+			max = *(int *)tmp->content;
 			max_pos = pos;
 		}
+		tmp = tmp->next;
 		pos++;
-		it = it->next;
 	}
 	return (max_pos);
 }
@@ -54,10 +44,8 @@ static void	rotate_to_top(t_list **b, int pos)
 
 	size = ft_lstsize(*b);
 	if (pos <= size / 2)
-	{
 		while (pos-- > 0)
 			rb(b);
-	}
 	else
 	{
 		pos = size - pos;
@@ -66,49 +54,74 @@ static void	rotate_to_top(t_list **b, int pos)
 	}
 }
 
-void	push_chunk(t_list **a, t_list **b, int chunk_min, int chunk_max)
+static void	sort_vals(int *arr, int size)
 {
-	int	size_a;
-	int	*arr;
+	int	i;
+	int	j;
+	int	tmp;
 
-	size_a = ft_lstsize(*a);
-	while (size_a-- > 0)
+	i = 0;
+	while (i < size - 1)
 	{
-		arr = assign_indexes(*a, ft_lstsize(*a));
-		if (!arr)
-			return ;
-		if (arr[0] >= chunk_min && arr[0] < chunk_max)
+		j = 0;
+		while (j < size - i - 1)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				tmp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = tmp;
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
+void	push_chunk(t_list **a, t_list **b, int min, int max)
+{
+	int	len;
+
+	len = ft_lstsize(*a);
+	while (len-- > 0)
+	{
+		if (*(int *)(*a)->content >= min && *(int *)(*a)->content < max)
 			pb(a, b);
 		else
 			ra(a);
-		free(arr);
 	}
 }
 
 void	chunk_sort(t_list **a, t_list **b)
 {
-	int	size;
-	int	chunk_size;
-	int	chunk_min;
-	int	chunk_max;
-	int	max_pos;
+	int		size;
+	int		step;
+	int		i;
+	int		*vals;
+	t_list	*tmp;
 
 	size = ft_lstsize(*a);
-	chunk_size = chunk_size_counter(size);
-	chunk_min = 0;
-	chunk_max = chunk_size;
-	while (chunk_min < size)
+	step = 0;
+	while (step * step < size)
+		step++;
+	vals = malloc(size * sizeof(int));
+	if (!vals)
+		return ;
+	tmp = *a;
+	i = 0;
+	while (tmp)
+		vals[i++] = *(int *)tmp->content, tmp = tmp->next;
+	sort_vals(vals, size);
+	i = 0;
+	while (i < size)
 	{
-		push_chunk(a, b, chunk_min, chunk_max);
-		chunk_min += chunk_size;
-		chunk_max += chunk_size;
-		if (chunk_max > size)
-			chunk_max = size;
+		push_chunk(a, b, vals[i], vals[(i + step < size) ? i + step - 1 : size - 1] + 1);
+		i += step;
 	}
+	free(vals);
 	while (*b)
 	{
-		max_pos = find_max_pos(b);
-		rotate_to_top(b, max_pos);
+		rotate_to_top(b, find_max_pos(b));
 		pa(a, b);
 	}
 }

@@ -43,11 +43,11 @@ typedef enum e_strategy
 }					t_strategy;
 
 /* parsing flags */
-
 typedef struct s_flags
 {
 	t_strategy		cmd;
-	int				bench;
+	int				cmd_flag;
+	int				bench_flag;
 	int				arg_i;
 }					t_flags;
 

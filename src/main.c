@@ -14,6 +14,29 @@
 
 static void	do_sort(t_list *a, t_strategy cmd, int bench_flag);
 static void	print_bench(double disorder, t_strategy commands);
+static int	parse_flags(int argc, char **argv, t_flags *f);
+
+int	main(int argc, char **argv)
+{
+	t_flags	f;
+	t_list	*a;
+
+	if (argc < 2)
+		return (0);
+	f.arg_i = 1;
+	f.bench_flag = 0;
+	f.cmd_flag = 0;
+	f.cmd = ADAPTIVE;
+	if (!parse_flags(argc, argv, &f))
+		return (write(2, "Error\n", 6), 0);
+	a = pars_args(argc - f.arg_i + 1, argv + f.arg_i - 1);
+	if (!a)
+		return (0);
+	if (is_sorted(a))
+		return (delete_stack(a), 0);
+	do_sort(a, f.cmd, f.bench_flag);
+	return (0);
+}
 
 static int	parse_flags(int argc, char **argv, t_flags *f)
 {
@@ -34,33 +57,12 @@ static int	parse_flags(int argc, char **argv, t_flags *f)
 			f->cmd = COMPLEX;
 		else if (ft_strncmp(argv[f->arg_i], "--bench", 7) == 0
 			&& argv[f->arg_i][7] == '\0')
-			f->bench = 1;
+			f->bench_flag = 1;
 		else
 			return (0);
 		f->arg_i++;
 	}
 	return (1);
-}
-
-int	main(int argc, char **argv)
-{
-	t_flags	f;
-	t_list	*a;
-
-	if (argc < 2)
-		return (0);
-	f.arg_i = 1;
-	f.bench = 0;
-	f.cmd = ADAPTIVE;
-	if (!parse_flags(argc, argv, &f))
-		return (write(2, "Error\n", 6), 0);
-	a = pars_args(argc - f.arg_i + 1, argv + f.arg_i - 1);
-	if (!a)
-		return (0);
-	if (is_sorted(a))
-		return (delete_stack(a), 0);
-	do_sort(a, f.cmd, f.bench);
-	return (0);
 }
 
 static void	do_sort(t_list *a, t_strategy cmd, int bench_flag)
