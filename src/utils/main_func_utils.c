@@ -34,3 +34,25 @@ void	choose_sort(t_list **a, t_list **b, t_strategy cmd, double disorder)
 	else
 		radix_sort(a, b);
 }
+
+int		command_checker(char **av, t_flags *f)
+{
+	int	i;
+	int	cmd_flag;
+	int bench_flag;
+
+	i = 1;
+	cmd_flag = 0;
+	bench_flag = 0;
+	while (i < f->arg_i)
+	{
+		if (ft_strncmp(av[i], "--bench", 7) == 0)
+			bench_flag++;
+		else
+			cmd_flag++;
+		i++;
+	}
+	if (bench_flag > 1 || cmd_flag > 1)
+		return(0);
+	return (1);
+}

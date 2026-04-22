@@ -15,7 +15,6 @@
 
 # include "../Libft/libft.h"
 # include <limits.h>
-# include <stdio.h>
 
 /* operations benchmark struct */
 typedef struct s_bench
@@ -46,8 +45,7 @@ typedef enum e_strategy
 typedef struct s_flags
 {
 	t_strategy		cmd;
-	int				cmd_flag;
-	int				bench_flag;
+	int				bench;
 	int				arg_i;
 }					t_flags;
 
@@ -81,6 +79,8 @@ int					is_valid_token_helper(const char *num);
 int					valid_checker(int ac, char **av);
 int					is_sorted(t_list *stack);
 int					*assign_indexes(t_list *stack, int size);
+int					command_checker(char **av, t_flags *f);
+
 
 void				delete_matrix(char **matrix);
 void				delete_stack(t_list *stack);
