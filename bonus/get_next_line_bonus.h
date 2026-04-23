@@ -6,12 +6,12 @@
 /*   By: edmvarda <edmvarda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 16:18:32 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/04/23 16:19:48 by edmvarda         ###   ########.fr       */
+/*   Updated: 2026/04/23 16:34:21 by edmvarda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BOUNUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include "../Libft/libft.h"
 
