@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_bench_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edmvarda <edmvarda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 16:21:20 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/04/21 16:21:23 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/23 16:42:04 by edmvarda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_putnbr_u(unsigned int n)
 	count = 0;
 	if (n >= 10)
 		count += ft_putnbr_u(n / 10);
-	count += write(2, "0123456789" + (n % 10), 1);
+	count += write(2, &"0123456789"[n % 10], 1);
 	return (count);
 }
 
