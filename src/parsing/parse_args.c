@@ -6,7 +6,7 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 19:02:21 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/04/21 17:05:21 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/23 20:05:44 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static t_list	*fill_stack_no_duplicate(t_list *stack, char **matrix)
 		if (!new_node->content)
 			return (free(new_node), delete_stack(stack), NULL);
 		*(int *)new_node->content = num;
+		new_node->next = NULL;
 		ft_lstadd_back(&stack, new_node);
 		matrix_i++;
 	}

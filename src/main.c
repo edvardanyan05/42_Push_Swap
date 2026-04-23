@@ -6,7 +6,7 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 20:47:53 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/04/23 19:10:13 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/23 20:39:29 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	t_list	*a;
 
 	if (argc < 2)
-		return (0);
+		return (write(2, "Error\n", 6), 0);
 	f.arg_i = 1;
 	f.bench = 0;
 	f.cmd = ADAPTIVE;

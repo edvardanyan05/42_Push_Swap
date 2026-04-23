@@ -6,7 +6,7 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 20:15:34 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/04/21 23:21:14 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/23 20:48:49 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,11 @@ void	delete_stack(t_list *stack)
 	while (stack->next)
 	{
 		tmp = stack->next;
+		free(stack->content);
 		free(stack);
 		stack = tmp;
 	}
+	free(stack->content);
 	free(stack);
 	stack = NULL;
 }

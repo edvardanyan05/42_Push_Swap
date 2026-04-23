@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_bench_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edmvarda <edmvarda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 16:21:20 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/04/23 16:42:04 by edmvarda         ###   ########.fr       */
+/*   Updated: 2026/04/23 22:24:18 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	print_disorder(double disorder)
 	unsigned int	left;
 	unsigned int	right;
 
+	disorder = disorder * 100;
 	left = (unsigned int)disorder;
 	right = (unsigned int)((disorder - left) * 100);
 	write(2, "Disorder: ", 10);
