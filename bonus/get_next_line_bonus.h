@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edmvarda <edmvarda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/02 22:40:45 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/03/12 15:04:38 by edmvarda         ###   ########.fr       */
+/*   Created: 2026/04/23 16:18:32 by edmvarda          #+#    #+#             */
+/*   Updated: 2026/04/23 16:19:48 by edmvarda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BOUNUS_H
 
 # include "../Libft/libft.h"
 

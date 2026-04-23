@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edmvarda <edmvarda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 19:38:45 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/04/23 16:00:00 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/23 16:21:13 by edmvarda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,8 @@ void	chunk_sort(t_list **a, t_list **b)
 	i = 0;
 	while (i < size)
 	{
-		push_chunk(a, b, vals[i], vals[(i + step < size) ? i + step - 1 : size - 1] + 1);
+		push_chunk(a, b, vals[i], vals[(i + step < size) ? i + step - 1 : size
+			- 1] + 1);
 		i += step;
 	}
 	free(vals);

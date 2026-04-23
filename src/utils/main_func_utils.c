@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_func_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edmvarda <edmvarda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 16:21:59 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/04/21 19:37:21 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/23 16:21:43 by edmvarda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ void	choose_sort(t_list **a, t_list **b, t_strategy cmd, double disorder)
 		radix_sort(a, b);
 }
 
-int		command_checker(char **av, t_flags *f)
+int	command_checker(char **av, t_flags *f)
 {
 	int	i;
 	int	cmd_flag;
-	int bench_flag;
+	int	bench_flag;
 
 	i = 1;
 	cmd_flag = 0;
@@ -53,6 +53,6 @@ int		command_checker(char **av, t_flags *f)
 		i++;
 	}
 	if (bench_flag > 1 || cmd_flag > 1)
-		return(0);
+		return (0);
 	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edmvarda <edmvarda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 20:48:08 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/04/21 23:24:14 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/23 16:20:26 by edmvarda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ int					valid_checker(int ac, char **av);
 int					is_sorted(t_list *stack);
 int					*assign_indexes(t_list *stack, int size);
 int					command_checker(char **av, t_flags *f);
-
 
 void				delete_matrix(char **matrix);
 void				delete_stack(t_list *stack);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edmvarda <edmvarda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 17:51:25 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/04/18 20:08:44 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/04/23 16:22:35 by edmvarda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ void	pb(t_list **a, t_list **b, int print)
 {
 	if (!b || !a || !*a)
 		return ;
-	push_top(b, a);	write(1, "pb\n", 3);
+	push_top(b, a);
+	write(1, "pb\n", 3);
 	if (print)
 	{
 		write(1, "pb\n", 3);
