@@ -32,9 +32,9 @@ static void	radix_sort_helper(t_list **a, t_list **b, int *arr, int bit)
 	while (i < size)
 	{
 		if (((arr[i] >> bit) & 1) == 1)
-			ra(a);
+			ra(a, 1);
 		else
-			pb(a, b);
+			pb(a, b, 1);
 		i++;
 	}
 }
@@ -57,7 +57,7 @@ void	radix_sort(t_list **a, t_list **b)
 		radix_sort_helper(a, b, arr, bit);
 		free(arr);
 		while (*b)
-			pa(a, b);
+			pa(a, b, 1);
 		bit++;
 	}
 }

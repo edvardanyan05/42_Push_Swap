@@ -45,12 +45,12 @@ static void	rotate_to_top(t_list **b, int pos)
 	size = ft_lstsize(*b);
 	if (pos <= size / 2)
 		while (pos-- > 0)
-			rb(b);
+			rb(b, 1);
 	else
 	{
 		pos = size - pos;
 		while (pos-- > 0)
-			rrb(b);
+			rrb(b, 1);
 	}
 }
 
@@ -86,9 +86,9 @@ void	push_chunk(t_list **a, t_list **b, int min, int max)
 	while (len-- > 0)
 	{
 		if (*(int *)(*a)->content >= min && *(int *)(*a)->content < max)
-			pb(a, b);
+			pb(a, b, 1);
 		else
-			ra(a);
+			ra(a, 1);
 	}
 }
 
@@ -122,6 +122,6 @@ void	chunk_sort(t_list **a, t_list **b)
 	while (*b)
 	{
 		rotate_to_top(b, find_max_pos(b));
-		pa(a, b);
+		pa(a, b, 1);
 	}
 }

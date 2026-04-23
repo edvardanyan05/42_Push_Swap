@@ -24,20 +24,26 @@ static void	push_top(t_list **dst, t_list **src)
 	*dst = tmp;
 }
 
-void	pa(t_list **a, t_list **b)
+void	pa(t_list **a, t_list **b, int print)
 {
 	if (!a || !b || !*b)
 		return ;
 	push_top(a, b);
-	write(1, "pa\n", 3);
-	original_bench()->pa++;
+	if (print)
+	{
+		write(1, "pa\n", 3);
+		original_bench()->pa++;
+	}
 }
 
-void	pb(t_list **a, t_list **b)
+void	pb(t_list **a, t_list **b, int print)
 {
 	if (!b || !a || !*a)
 		return ;
-	push_top(b, a);
-	write(1, "pb\n", 3);
-	original_bench()->pb++;
+	push_top(b, a);	write(1, "pb\n", 3);
+	if (print)
+	{
+		write(1, "pb\n", 3);
+		original_bench()->pb++;
+	}
 }

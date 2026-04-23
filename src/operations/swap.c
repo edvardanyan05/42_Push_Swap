@@ -26,30 +26,39 @@ static void	swap_top(t_list **stack)
 	*stack = tmp;
 }
 
-void	sa(t_list **a)
+void	sa(t_list **a, int print)
 {
 	if (!a || !*a || !(*a)->next)
 		return ;
 	swap_top(a);
-	write(1, "sa\n", 3);
-	original_bench()->sa++;
+	if (print)
+	{
+		write(1, "sa\n", 3);
+		original_bench()->sa++;
+	}
 }
 
-void	sb(t_list **b)
+void	sb(t_list **b, int print)
 {
 	if (!b || !*b || !(*b)->next)
 		return ;
 	swap_top(b);
-	write(1, "sb\n", 3);
-	original_bench()->sb++;
+	if (print)
+	{
+		write(1, "sb\n", 3);
+		original_bench()->sb++;
+	}
 }
 
-void	ss(t_list **a, t_list **b)
+void	ss(t_list **a, t_list **b, int print)
 {
 	if ((!a || !*a || !(*a)->next) || (!b || !*b || !(*b)->next))
 		return ;
 	swap_top(a);
 	swap_top(b);
-	write(1, "ss\n", 3);
-	original_bench()->ss++;
+	if (print)
+	{
+		write(1, "ss\n", 3);
+		original_bench()->ss++;
+	}
 }

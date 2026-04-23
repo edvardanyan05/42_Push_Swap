@@ -15,7 +15,7 @@
 void	sort_two(t_list **a)
 {
 	if (*(int *)(*a)->content > *(int *)(*a)->next->content)
-		sa(a);
+		sa(a, 1);
 }
 
 void	sort_three(t_list **a)
@@ -29,19 +29,19 @@ void	sort_three(t_list **a)
 		return (free(arr));
 	else if (arr[0] == 0 && arr[1] == 2)
 	{
-		rra(a);
-		sa(a);
+		rra(a, 1);
+		sa(a, 1);
 	}
 	else if (arr[0] == 1 && arr[1] == 0)
-		sa(a);
+		sa(a, 1);
 	else if (arr[0] == 1 && arr[1] == 2)
-		rra(a);
+		rra(a, 1);
 	else if (arr[0] == 2 && arr[1] == 0)
-		ra(a);
+		ra(a, 1);
 	else if (arr[0] == 2 && arr[1] == 1)
 	{
-		sa(a);
-		rra(a);
+		sa(a, 1);
+		rra(a, 1);
 	}
 	free(arr);
 }
@@ -77,15 +77,15 @@ void	push_min_to_b(t_list **a, t_list **b)
 	{
 		steps = pos;
 		while (steps-- > 0)
-			ra(a);
+			ra(a, 1);
 	}
 	else
 	{
 		steps = size - pos;
 		while (steps-- > 0)
-			rra(a);
+			rra(a, 1);
 	}
-	pb(a, b);
+	pb(a, b, 1);
 }
 
 void	sort_five(t_list **a, t_list **b)
@@ -96,7 +96,7 @@ void	sort_five(t_list **a, t_list **b)
 	push_min_to_b(a, b);
 	sort_three(a);
 	if (*(int *)(*b)->content > *(int *)(*b)->next->content)
-		sb(b);
-	pa(a, b);
-	pa(a, b);
+		sb(b, 1);
+	pa(a, b, 1);
+	pa(a, b, 1);
 }

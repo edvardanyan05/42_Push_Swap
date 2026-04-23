@@ -50,21 +50,19 @@ typedef struct s_flags
 }					t_flags;
 
 /* main functions */
-void				sa(t_list **a);
-void				sb(t_list **b);
-void				ss(t_list **a, t_list **b);
+void				sa(t_list **a, int print);
+void				sb(t_list **b, int print);
+void				ss(t_list **a, t_list **b, int print);
 
-void				pa(t_list **a, t_list **b);
-void				pb(t_list **a, t_list **b);
+void				pa(t_list **a, t_list **b, int print);
+void				pb(t_list **a, t_list **b, int print);
+void				ra(t_list **a, int print);
+void				rb(t_list **b, int print);
+void				rr(t_list **a, t_list **b, int print);
 
-void				ra(t_list **a);
-void				rb(t_list **b);
-void				rr(t_list **a, t_list **b);
-
-void				rra(t_list **a);
-void				rrb(t_list **b);
-void				rrr(t_list **a, t_list **b);
-
+void				rra(t_list **a, int print);
+void				rrb(t_list **b, int print);
+void				rrr(t_list **a, t_list **b, int print);
 void				simple_sort(t_list **a, t_list **b);
 void				chunk_sort(t_list **a, t_list **b);
 void				radix_sort(t_list **a, t_list **b);

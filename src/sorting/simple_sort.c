@@ -25,5 +25,5 @@ void	simple_sort(t_list **a, t_list **b)
 		push_min_to_b(a, b);
 	sort_three(a);
 	while (*b)
-		pa(a, b);
+		pa(a, b, 1);
 }

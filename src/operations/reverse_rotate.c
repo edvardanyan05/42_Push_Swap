@@ -26,31 +26,40 @@ void	rev_rotate(t_list **stack)
 	*stack = tmp;
 }
 
-void	rra(t_list **a)
+void	rra(t_list **a, int print)
 {
 	if (!a || !*a || !(*a)->next)
 		return ;
 	rev_rotate(a);
-	write(1, "rra\n", 4);
-	original_bench()->rra++;
+	if (print)
+	{
+		write(1, "rra\n", 4);
+		original_bench()->rra++;
+	}
 }
 
-void	rrb(t_list **b)
+void	rrb(t_list **b, int print)
 {
 	if (!b || !*b || !(*b)->next)
 		return ;
 	rev_rotate(b);
-	write(1, "rrb\n", 4);
-	original_bench()->rrb++;
+	if (print)
+	{
+		write(1, "rrb\n", 4);
+		original_bench()->rrb++;
+	}
 }
 
-void	rrr(t_list **a, t_list **b)
+void	rrr(t_list **a, t_list **b, int print)
 {
 	if (a && *a && (*a)->next && b && *b && (*b)->next)
 	{
 		rev_rotate(a);
 		rev_rotate(b);
-		write(1, "rrr\n", 4);
-		original_bench()->rrr++;
+		if (print)
+		{
+			write(1, "rrr\n", 4);
+			original_bench()->rrr++;
+		}
 	}
 }
