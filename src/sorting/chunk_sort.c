@@ -3,79 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edmvarda <edmvarda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/11 19:38:45 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/04/23 16:21:13 by edmvarda         ###   ########.fr       */
+/*   Created: 2026/04/23 18:57:54 by mgogjyan          #+#    #+#             */
+/*   Updated: 2026/04/23 19:00:46 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	find_max_pos(t_list **b)
+static int	get_chunk_max(int *vals, int i, int step, int size)
 {
-	int		pos;
-	int		max_pos;
-	int		max;
-	t_list	*tmp;
-
-	if (!b || !*b)
-		return (0);
-	pos = 0;
-	max_pos = 0;
-	max = *(int *)(*b)->content;
-	tmp = *b;
-	while (tmp)
-	{
-		if (*(int *)tmp->content > max)
-		{
-			max = *(int *)tmp->content;
-			max_pos = pos;
-		}
-		tmp = tmp->next;
-		pos++;
-	}
-	return (max_pos);
-}
-
-static void	rotate_to_top(t_list **b, int pos)
-{
-	int	size;
-
-	size = ft_lstsize(*b);
-	if (pos <= size / 2)
-		while (pos-- > 0)
-			rb(b, 1);
-	else
-	{
-		pos = size - pos;
-		while (pos-- > 0)
-			rrb(b, 1);
-	}
-}
-
-static void	sort_vals(int *arr, int size)
-{
-	int	i;
-	int	j;
-	int	tmp;
-
-	i = 0;
-	while (i < size - 1)
-	{
-		j = 0;
-		while (j < size - i - 1)
-		{
-			if (arr[j] > arr[j + 1])
-			{
-				tmp = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = tmp;
-			}
-			j++;
-		}
-		i++;
-	}
+	if (i + step - 1 < size)
+		return (vals[i + step - 1] + 1);
+	return (vals[size - 1] + 1);
 }
 
 void	push_chunk(t_list **a, t_list **b, int min, int max)
@@ -92,13 +33,25 @@ void	push_chunk(t_list **a, t_list **b, int min, int max)
 	}
 }
 
+static void	push_all_chunks(t_list **a, t_list **b, int *vals, int step)
+{
+	int	i;
+	int	size;
+
+	i = 0;
+	size = ft_lstsize(*a);
+	while (i < size)
+	{
+		push_chunk(a, b, vals[i], get_chunk_max(vals, i, step, size));
+		i += step;
+	}
+}
+
 void	chunk_sort(t_list **a, t_list **b)
 {
-	int		size;
-	int		step;
-	int		i;
-	int		*vals;
-	t_list	*tmp;
+	int	size;
+	int	step;
+	int	*vals;
 
 	size = ft_lstsize(*a);
 	step = 0;
@@ -107,22 +60,9 @@ void	chunk_sort(t_list **a, t_list **b)
 	vals = malloc(size * sizeof(int));
 	if (!vals)
 		return ;
-	tmp = *a;
-	i = 0;
-	while (tmp)
-		vals[i++] = *(int *)tmp->content, tmp = tmp->next;
+	fill_vals(vals, *a);
 	sort_vals(vals, size);
-	i = 0;
-	while (i < size)
-	{
-		push_chunk(a, b, vals[i], vals[(i + step < size) ? i + step - 1 : size
-			- 1] + 1);
-		i += step;
-	}
+	push_all_chunks(a, b, vals, step);
 	free(vals);
-	while (*b)
-	{
-		rotate_to_top(b, find_max_pos(b));
-		pa(a, b, 1);
-	}
+	push_back_to_a(a, b);
 }

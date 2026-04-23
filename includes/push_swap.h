@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edmvarda <edmvarda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 20:48:08 by edmvarda          #+#    #+#             */
-/*   Updated: 2026/04/23 16:20:26 by edmvarda         ###   ########.fr       */
+/*   Updated: 2026/04/23 19:04:04 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,12 @@ void				print_disorder(double disorder);
 void				print_strategy(t_strategy strategy, double disorder);
 void				print_total_operations(t_bench *bench);
 void				print_operations(t_bench *t_bench);
+
+int					find_max_pos(t_list **b);
+void				rotate_to_top(t_list **b, int pos);
+void				push_back_to_a(t_list **a, t_list **b);
+void				fill_vals(int *vals, t_list *a);
+void				sort_vals(int *arr, int size);
 
 double				compute_disorder(t_list *stack);
 void				choose_sort(t_list **a, t_list **b, t_strategy cmd,

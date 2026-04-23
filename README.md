@@ -68,7 +68,7 @@ Examples:
 ./push_swap --complex 42 7 -3 100 0
 ./push_swap --bench 3 2 1 5 4
 ./push_swap --simple --bench 5 4 3 2 1
-ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_linux $ARG
+./push_swap 3 2 1 5 4 | ./checker 3 2 1 5 4
 ```
 
 ### Error Handling

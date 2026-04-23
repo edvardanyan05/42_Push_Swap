@@ -17,6 +17,7 @@ SRCS = \
 	src/utils/sorting_utils.c \
 	src/utils/print_bench_utils.c \
 	src/utils/main_func_utils.c \
+	src/utils/chunk_sort_utils.c \
 	src/operations/swap.c \
 	src/operations/push.c \
 	src/operations/rotate.c \
