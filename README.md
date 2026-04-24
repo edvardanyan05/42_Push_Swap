@@ -75,6 +75,7 @@ Examples:
 
 The program prints `Error` to stderr and exits on:
 - Non-integer arguments
+- Less than 2 arguments
 - Integers outside INT_MIN to INT_MAX range
 - Duplicate values
 - Invalid flags
