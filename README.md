@@ -53,6 +53,7 @@ Other Makefile rules:
 make clean
 make fclean
 make re
+make bonus
 ```
 
 ### Usage
