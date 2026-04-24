@@ -1,10 +1,10 @@
 *This project has been created as part of the 42 curriculum by edmvarda, mgogjyan.*
 
-# push_swap
+# Push_Swap
 
 ## Description
 
-`push_swap` is a sorting algorithm project from the 42 curriculum. The goal is to sort a stack of integers using two stacks (`a` and `b`) and a limited set of operations, generating the smallest possible sequence of moves.
+`push_swap` is a sorting algorithm TEAM project from the 42 curriculum. The goal is to sort a stack of integers using two stacks (`a` and `b`) and a limited set of operations, generating the smallest possible sequence of moves.
 
 The project requires implementing four distinct sorting strategies with different algorithmic complexities, and selecting the best strategy at runtime based on the input configuration.
 
@@ -53,7 +53,7 @@ Other Makefile rules:
 make clean
 make fclean
 make re
-make bonus
+make bonus (do this for checker)
 ```
 
 ### Usage
@@ -69,7 +69,7 @@ Examples:
 ./push_swap --complex 42 7 -3 100 0
 ./push_swap --bench 3 2 1 5 4
 ./push_swap --simple --bench 5 4 3 2 1
-./push_swap 3 2 1 5 4 | ./checker 3 2 1 5 4
+./push_swap 3 2 1 5 4 | ./checker 3 2 1 5 4 (The checker would say whether the stack is sorted or not. Output OK | KO)
 ```
 
 ### Error Handling
